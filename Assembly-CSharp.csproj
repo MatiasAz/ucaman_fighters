@@ -72,12 +72,15 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Disapear.cs" />
     <Compile Include="Assets\Scripts\ghostScript.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\MovingEntity.cs" />
     <Compile Include="Assets\Scripts\pplayer1.cs" />
     <Compile Include="Assets\Scripts\pplayer2.cs" />
+    <Compile Include="Assets\Scripts\rotate.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.Timeline.Editor">

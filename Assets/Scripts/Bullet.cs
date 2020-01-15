@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10;
     public float flytime = 3f;
+    public float damage = 10f;
     Rigidbody rb;
 
     void Awake()
@@ -18,5 +19,14 @@ public class Bullet : MonoBehaviour
     void DestroyBullet()
     {
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if( other.CompareTag("Ghost"))
+        {
+            other.SendMessage("DamageTaken", damage);
+            DestroyBullet();
+        }
     }
 }

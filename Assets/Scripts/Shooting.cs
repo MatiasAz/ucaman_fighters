@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
+    public float shotCooldown = 0.25f;
+    float lastShotTime = 0;
     //public float speed = 100f;
     // Start is called before the first frame update
     void Start()
@@ -22,15 +24,20 @@ public class Shooting : MonoBehaviour
         }
                 
     }
-    void OnCollisionStay(Collision collision)
+    /*void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "coin")
         {
             GameObject.Instantiate(bullet, transform.position, transform.rotation);
         }
-    }
+    }*/
     void Shot()
     {
-        GameObject instbullet = Instantiate(bullet, transform.position, transform.rotation);
+        if(Time.time - lastShotTime > shotCooldown)
+        {
+            GameObject instbullet = Instantiate(bullet, transform.position, transform.rotation);
+            lastShotTime = Time.time;
+        }
+        
     }
 }

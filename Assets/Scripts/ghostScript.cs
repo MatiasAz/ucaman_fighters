@@ -26,11 +26,16 @@ public class ghostScript : MonoBehaviour
         agent.destination = target.transform.position;
 
     }
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("ucaman_scene");
+            //SceneManager.LoadScene("ucaman_scene");
         }
+    }
+
+    public void OndeadHandler()
+    {
+        Destroy(gameObject);
     }
 }
