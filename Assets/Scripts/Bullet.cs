@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     public float speed = 10;
     public float flytime = 3f;
     public float damage = 10f;
+    public float damage2 = 2f;
+    float inicio = 0f;
     Rigidbody rb;
 
     void Awake()
@@ -14,6 +16,7 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
         Invoke("DestroyBullet", flytime);
+        inicio = Time.time;
     }
 
     void DestroyBullet()
@@ -23,10 +26,22 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if( other.CompareTag("Ghost"))
+        if((Time.time - inicio) >= 0.2f)
         {
-            other.SendMessage("DamageTaken", damage);
-            DestroyBullet();
-        }
+            if (other.CompareTag("Ghost"))
+            {
+                other.SendMessage("DamageTaken", damage);
+                DestroyBullet();
+            }
+            else if (other.CompareTag("wall"))
+            {
+                DestroyBullet();
+            }
+            else if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+            {
+                other.SendMessage("DamageTaken", damage2);
+                //DestroyBullet();
+            }
+        }  
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 // This script moves the character controller forward
 // and sideways based on the arrow keys.
@@ -86,5 +87,9 @@ public class pplayer1 : MovingEntity
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
         */
+    }
+    public void OndeadHandler()
+    {
+        SceneManager.LoadScene("ucaman_scene");
     }
 }

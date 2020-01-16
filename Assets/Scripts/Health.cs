@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public float max_health = 100;
     public UnityEvent OnDamageTaken;
     public UnityEvent OnDead;
+    public UnityEvent OnLiveUp;
 
     void DamageTaken(float amount)
     {
@@ -21,4 +22,13 @@ public class Health : MonoBehaviour
             OnDead.Invoke();
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "ficha")
+        {
+            current_health += 1;
+            OnDamageTaken.Invoke();
+        }
+    }
+
 }

@@ -8,6 +8,8 @@ TagManager:
   - Ghost
   - Player1
   - Player2
+  - wall
+  - ficha
   layers:
   - Default
   - TransparentFX
