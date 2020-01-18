@@ -9,6 +9,7 @@ public class ghostScript : MonoBehaviour
     public GameObject target,target1,target2; //este es el player (jugador)
     NavMeshAgent agent;//referencia para el ghost navmeshagent component
     Vector3 origen;
+    public float damage = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class ghostScript : MonoBehaviour
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
             agent.transform.position = origen;
+            collision.collider.SendMessage("DamageTaken", damage);
             //SceneManager.LoadScene("ucaman_scene");
         }
     }

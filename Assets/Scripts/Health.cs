@@ -22,12 +22,13 @@ public class Health : MonoBehaviour
             OnDead.Invoke();
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "ficha")
         {
             current_health += 1;
-            OnDamageTaken.Invoke();
+            OnLiveUp.Invoke();
         }
     }
 
